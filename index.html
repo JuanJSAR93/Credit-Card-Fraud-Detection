@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Landing page de un proyecto de IA para detección de fraude con tarjetas de crédito." />
-  <title>Credit Card Fraud Detection | IA</title>
+  <meta name="description" content="Solución fintech de detección de fraude financiero basada en Inteligencia Artificial." />
+  <title>Fraud Intelligence Platform | IA para fintech</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
@@ -396,7 +396,7 @@
       line-height: 1.65;
     }
 
-    .pipeline {
+    .flow-grid {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 12px;
@@ -533,6 +533,27 @@
       line-height: 1.55;
     }
 
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .tech-pill {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 72px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius);
+      color: var(--muted-2);
+      background: rgba(255, 255, 255, 0.055);
+      font-weight: 750;
+      text-align: center;
+    }
+
     .chat-grid {
       display: grid;
       grid-template-columns: 0.88fr 1.12fr;
@@ -629,7 +650,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .pipeline, .conclusions {
+      .flow-grid, .conclusions, .tech-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
@@ -656,7 +677,7 @@
         width: 100%;
       }
 
-      .stats-grid, .pipeline, .business-grid, .conclusions {
+      .stats-grid, .flow-grid, .business-grid, .conclusions, .tech-grid {
         grid-template-columns: 1fr;
       }
 
@@ -677,14 +698,14 @@
     <div class="shell nav-inner">
       <a class="brand" href="#top" aria-label="Inicio">
         <span class="brand-mark">AI</span>
-        <span>Fraud Detection</span>
+        <span>Fraud Intelligence</span>
       </a>
       <div class="nav-links" aria-label="Navegación principal">
-        <a href="#dataset">Dataset</a>
-        <a href="#pipeline">Pipeline</a>
-        <a href="#modelos">Modelos</a>
-        <a href="#negocio">Negocio</a>
-        <a href="#chat">Pregúntale al Proyecto</a>
+        <a href="#problema">Problema</a>
+        <a href="#solucion">Solución</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#impacto">Impacto</a>
+        <a href="#chat">Asistente IA</a>
       </div>
     </div>
   </nav>
@@ -693,186 +714,217 @@
     <header class="hero">
       <div class="shell hero-grid">
         <div class="reveal">
-          <p class="eyebrow"><span class="pulse"></span> Proyecto IA · Detección de fraude financiero</p>
-          <h1>Credit Card <span class="gradient-text">Fraud Detection</span></h1>
+          <p class="eyebrow"><span class="pulse"></span> Plataforma fintech de prevención de fraude</p>
+          <h1>Protegiendo millones de transacciones con <span class="gradient-text">Inteligencia Artificial</span></h1>
           <p class="hero-copy">
-            Una solución de inteligencia artificial orientada a identificar transacciones fraudulentas,
-            priorizando recall y costo de negocio sobre métricas superficiales.
+            Nuestra solución logró detectar más de 4.500 transacciones fraudulentas y detener aproximadamente
+            5 fraudes por cada uno que logró pasar desapercibido.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#modelos">Ver modelo ganador</a>
-            <a class="button" href="#chat">Pregúntale al Proyecto</a>
+            <a class="button primary" href="#resultados">Ver resultados</a>
+            <a class="button" href="#chat">Consultar al asistente IA</a>
+          </div>
+          <div class="stats-grid">
+            <article class="stat reveal"><p class="stat-value">21M+</p><p class="stat-label">Transacciones analizadas.</p></article>
+            <article class="stat reveal"><p class="stat-value">4.569</p><p class="stat-label">Fraudes detectados.</p></article>
+            <article class="stat reveal"><p class="stat-value">83%</p><p class="stat-label">Fraudes identificados.</p></article>
           </div>
         </div>
 
-        <div class="hero-visual reveal" aria-label="Visualización animada de señales de fraude">
+        <div class="hero-visual reveal" aria-label="Visualización animada de protección transaccional">
           <canvas id="networkCanvas"></canvas>
           <div class="risk-card">
             <div class="risk-top">
               <div>
-                <div class="risk-label">Modelo seleccionado</div>
-                <div class="risk-score">Red Neuronal</div>
+                <div class="risk-label">Motor inteligente</div>
+                <div class="risk-score">Activo</div>
               </div>
               <div>
-                <div class="risk-label">Recall</div>
-                <div class="risk-score">83.16%</div>
+                <div class="risk-label">Fraude identificado</div>
+                <div class="risk-score">83%</div>
               </div>
             </div>
-            <div class="signal-row"><span>Balances de cuenta</span><strong>91%</strong></div>
+            <div class="signal-row"><span>Patrones de saldo</span><strong>Alta señal</strong></div>
             <div class="bar"><span style="width:91%"></span></div>
-            <div class="signal-row"><span>Monto de transacción</span><strong>74%</strong></div>
+            <div class="signal-row"><span>Riesgo transaccional</span><strong>Monitoreado</strong></div>
             <div class="bar"><span style="width:74%"></span></div>
           </div>
         </div>
       </div>
     </header>
 
-    <section id="dataset">
+    <section id="problema">
       <div class="shell">
         <div class="section-head reveal">
           <div>
-            <p class="kicker">Dataset</p>
-            <h2>De 21 millones de transacciones a una muestra balanceada para entrenar mejor.</h2>
+            <p class="kicker">El problema</p>
+            <h2>El fraude financiero escala más rápido que los equipos humanos pueden revisarlo.</h2>
             <p class="section-copy">
-              El dataset de trabajo conserva una proporción 5:1 entre transacciones legítimas y fraudes,
-              suficiente para evaluar modelos en un escenario desbalanceado y realista.
+              Bancos, billeteras digitales y entidades financieras procesan millones de operaciones. En ese volumen,
+              detectar fraude manualmente es lento, costoso y vulnerable a patrones que cambian constantemente.
             </p>
           </div>
         </div>
-        <div class="stats-grid">
-          <article class="stat reveal"><p class="stat-value">21M</p><p class="stat-label">Transacciones en el dataset original.</p></article>
-          <article class="stat reveal"><p class="stat-value">164.820</p><p class="stat-label">Transacciones usadas para el experimento.</p></article>
-          <article class="stat reveal"><p class="stat-value">27.470</p><p class="stat-label">Casos de fraude dentro del dataset de trabajo.</p></article>
-          <article class="stat reveal"><p class="stat-value">5:1</p><p class="stat-label">Ratio entre no fraude y fraude.</p></article>
-        </div>
-        <div class="split" style="margin-top:18px">
-          <div class="chart-card reveal">
-            <h3>Distribución del dataset</h3>
-            <div class="chart-wrap"><canvas id="datasetChart"></canvas></div>
-          </div>
-          <div class="card reveal">
-            <h3>Variables analizadas</h3>
-            <p>
-              step, type, amount, oldbalanceOrg, newbalanceOrig, oldbalanceDest y newbalanceDest.
-              Los balances antes y después de cada operación fueron decisivos para separar patrones normales de señales de fraude.
-            </p>
-          </div>
+        <div class="flow-grid">
+          <article class="step reveal"><div class="step-number">1</div><h3>Pérdidas económicas</h3><p>Cada fraude no detectado se convierte en exposición financiera directa.</p></article>
+          <article class="step reveal"><div class="step-number">2</div><h3>Volumen masivo</h3><p>Las entidades procesan transacciones a una velocidad imposible de auditar manualmente.</p></article>
+          <article class="step reveal"><div class="step-number">3</div><h3>Patrones cambiantes</h3><p>Los comportamientos sospechosos evolucionan y requieren análisis continuo.</p></article>
+          <article class="step reveal"><div class="step-number">4</div><h3>Decisiones rápidas</h3><p>La detección debe ocurrir antes de que el daño financiero se consolide.</p></article>
+          <article class="step reveal"><div class="step-number">5</div><h3>Confianza</h3><p>Una capa inteligente ayuda a proteger clientes, capital y reputación.</p></article>
         </div>
       </div>
     </section>
 
-    <section id="pipeline">
+    <section id="solucion">
       <div class="shell">
-        <div class="section-head reveal">
-          <div>
-            <p class="kicker">Pipeline</p>
-            <h2>Un flujo de trabajo pensado para comparar modelos con criterio técnico y de negocio.</h2>
-          </div>
-        </div>
-        <div class="pipeline">
-          <article class="step reveal"><div class="step-number">1</div><h3>Selección</h3><p>Reducción del dataset original a una muestra de trabajo manejable.</p></article>
-          <article class="step reveal"><div class="step-number">2</div><h3>Balance</h3><p>Construcción de un ratio 5:1 para conservar el reto del fraude.</p></article>
-          <article class="step reveal"><div class="step-number">3</div><h3>Entrenamiento</h3><p>Evaluación de modelos clásicos, ensambles y red neuronal.</p></article>
-          <article class="step reveal"><div class="step-number">4</div><h3>Métricas</h3><p>Análisis de recall, precision, F1, accuracy y matriz de errores.</p></article>
-          <article class="step reveal"><div class="step-number">5</div><h3>Negocio</h3><p>Selección final usando una función de costo alineada al riesgo.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="modelos">
-      <div class="shell">
-        <div class="section-head reveal">
-          <div>
-            <p class="kicker">Comparativa</p>
-            <h2>Cuatro modelos evaluados. Una red neuronal como mejor decisión.</h2>
-            <p class="section-copy">La comparación priorizó detectar fraudes: perder uno cuesta 100 veces más que generar una falsa alarma.</p>
-          </div>
-        </div>
         <div class="models-grid">
-          <div class="chart-card reveal">
-            <h3>Métricas del modelo ganador</h3>
-            <div class="chart-wrap"><canvas id="metricsChart"></canvas></div>
+          <div class="reveal">
+            <p class="kicker">La solución</p>
+            <h2>Un motor inteligente que prioriza detener fraude antes de que se convierta en pérdida.</h2>
+            <p class="section-copy">
+              La solución analiza señales transaccionales y cambios de balance para identificar operaciones de alto riesgo.
+              La arquitectura final fue optimizada para maximizar la detección de fraude y reducir el riesgo financiero.
+            </p>
           </div>
           <article class="card winner reveal">
-            <span class="winner-badge">Modelo ganador</span>
-            <h3>Red Neuronal</h3>
+            <span class="winner-badge">Motor Inteligente de Detección</span>
+            <h3>La Solución Seleccionada</h3>
             <p>
-              Fue el mejor modelo técnico y de negocio: detectó más del 83% de fraudes,
-              no presentó overfitting y maximizó el valor bajo la función de Business Score.
+              El sistema elegido utiliza una red neuronal como núcleo de decisión, apoyada por comparaciones con
+              modelos de machine learning para validar su desempeño frente al objetivo de negocio.
             </p>
             <div class="metric-list">
-              <div class="metric"><span>Recall</span><strong>83.16%</strong></div>
-              <div class="metric"><span>Precision</span><strong>16.76%</strong></div>
-              <div class="metric"><span>F1 Score</span><strong>0.2790</strong></div>
-              <div class="metric"><span>Accuracy</span><strong>28.35%</strong></div>
+              <div class="metric"><span>Fraudes identificados</span><strong>83.16%</strong></div>
+              <div class="metric"><span>Fraudes detenidos</span><strong>4.569</strong></div>
+              <div class="metric"><span>Fraudes que pasaron</span><strong>925</strong></div>
+              <div class="metric"><span>Relación aproximada</span><strong>5 a 1</strong></div>
             </div>
           </article>
         </div>
-        <div class="chart-card reveal" style="margin-top:18px">
-          <h3>Recall y Business Score por modelo</h3>
-          <div class="chart-wrap"><canvas id="comparisonChart"></canvas></div>
-        </div>
       </div>
     </section>
 
-    <section id="negocio">
+    <section id="resultados">
       <div class="shell">
         <div class="section-head reveal">
           <div>
-            <p class="kicker">Impacto de negocio</p>
-            <h2>La métrica final castiga con fuerza los fraudes perdidos.</h2>
+            <p class="kicker">Resultados obtenidos</p>
+            <h2>Por cada fraude que logró evadir el sistema, aproximadamente cinco fueron detectados correctamente.</h2>
             <p class="section-copy">
-              En fraude financiero, una falsa alarma molesta; un fraude perdido cuesta. Por eso la función de negocio pondera FN con un costo 100 veces mayor que FP.
+              El resultado central no es una métrica técnica aislada: es la capacidad de interceptar transacciones fraudulentas
+              antes de que generen pérdidas para una entidad financiera.
             </p>
           </div>
         </div>
         <div class="business-grid">
-          <article class="stat reveal"><p class="stat-value">4.569</p><p class="stat-label">Fraudes detectados por la red neuronal.</p></article>
-          <article class="stat reveal"><p class="stat-value">925</p><p class="stat-label">Fraudes perdidos, el error más costoso.</p></article>
-          <article class="stat reveal"><p class="stat-value">22.695</p><p class="stat-label">Clientes afectados por alertas o decisiones del modelo.</p></article>
+          <article class="stat reveal"><p class="stat-value">4.569</p><p class="stat-label">Fraudes detectados por el sistema.</p></article>
+          <article class="stat reveal"><p class="stat-value">925</p><p class="stat-label">Fraudes que lograron pasar.</p></article>
+          <article class="stat reveal"><p class="stat-value">5:1</p><p class="stat-label">Fraudes detectados por cada fraude no detectado.</p></article>
         </div>
-        <div class="formula reveal">Business Score = TP - (FP × 0.05) - (FN × 5) = -1190.75</div>
+        <div class="split" style="margin-top:18px">
+          <div class="chart-card reveal">
+            <h3>Fraudes detectados vs. no detectados</h3>
+            <div class="chart-wrap"><canvas id="metricsChart"></canvas></div>
+          </div>
+          <div class="chart-card reveal">
+            <h3>Detección comparada por enfoque</h3>
+            <div class="chart-wrap"><canvas id="comparisonChart"></canvas></div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="hallazgos">
+    <section id="impacto">
       <div class="shell">
         <div class="section-head reveal">
           <div>
-            <p class="kicker">Hallazgos</p>
-            <h2>Los balances de cuenta explicaron gran parte del comportamiento fraudulento.</h2>
-          </div>
-        </div>
-        <div class="split">
-          <div class="chart-card reveal">
-            <h3>Variables más importantes</h3>
-            <div class="chart-wrap"><canvas id="featuresChart"></canvas></div>
-          </div>
-          <div class="card reveal">
-            <h3>Lectura principal</h3>
-            <p>
-              oldbalanceDest, newbalanceOrig, oldbalanceOrg y newbalanceDest dominaron la explicación del modelo.
-              Esto sugiere que los cambios de saldo antes y después de cada operación son señales más robustas que mirar solo el monto.
+            <p class="kicker">Impacto para el negocio</p>
+            <h2>Menos fraude aprobado significa menor exposición económica y mayor confianza operativa.</h2>
+            <p class="section-copy">
+              El objetivo del sistema es minimizar pérdidas económicas priorizando la detección de fraude.
+              En este escenario, dejar pasar un fraude es mucho más costoso que investigar una operación sospechosa.
             </p>
           </div>
         </div>
+        <div class="business-grid">
+          <article class="stat reveal"><p class="stat-value">83%</p><p class="stat-label">De detección de fraude.</p></article>
+          <article class="stat reveal"><p class="stat-value">4.569</p><p class="stat-label">Fraudes identificados.</p></article>
+          <article class="stat reveal"><p class="stat-value">925</p><p class="stat-label">Fraudes que lograron pasar.</p></article>
+        </div>
+        <div class="formula reveal">Prioridad de negocio: detectar fraude temprano para reducir pérdidas financieras.</div>
       </div>
     </section>
 
-    <section id="conclusiones">
+    <section id="tecnologia">
       <div class="shell">
         <div class="section-head reveal">
           <div>
-            <p class="kicker">Conclusiones</p>
-            <h2>El modelo correcto no es el más cómodo: es el que reduce mejor el riesgo.</h2>
+            <p class="kicker">Tecnología utilizada</p>
+            <h2>Una base técnica moderna, diseñada para evolucionar hacia un producto real.</h2>
+            <p class="section-copy">
+              La tecnología funciona como soporte del producto: modelos predictivos, APIs y despliegue web para convertir
+              la detección de fraude en una experiencia consultable y escalable.
+            </p>
+          </div>
+        </div>
+        <div class="tech-grid">
+          <div class="tech-pill reveal">Machine Learning</div>
+          <div class="tech-pill reveal">Deep Learning</div>
+          <div class="tech-pill reveal">XGBoost</div>
+          <div class="tech-pill reveal">Random Forest</div>
+          <div class="tech-pill reveal">Redes Neuronales</div>
+          <div class="tech-pill reveal">FastAPI</div>
+          <div class="tech-pill reveal">Groq</div>
+          <div class="tech-pill reveal">GitHub Pages + Render</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dataset">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="kicker">Base de análisis</p>
+            <h2>La solución fue probada sobre una muestra diseñada para acelerar experimentación y comparación.</h2>
+            <p class="section-copy">
+              El universo original contiene 21.000.000 transacciones. Para validar la solución se trabajó con
+              164.820 transacciones, manteniendo señales suficientes para comparar enfoques de detección.
+            </p>
+          </div>
+        </div>
+        <div class="stats-grid">
+          <article class="stat reveal"><p class="stat-value">21M</p><p class="stat-label">Transacciones en la base original.</p></article>
+          <article class="stat reveal"><p class="stat-value">164.820</p><p class="stat-label">Transacciones en la muestra de trabajo.</p></article>
+          <article class="stat reveal"><p class="stat-value">27.470</p><p class="stat-label">Operaciones fraudulentas presentes en la muestra.</p></article>
+          <article class="stat reveal"><p class="stat-value">7</p><p class="stat-label">Señales transaccionales utilizadas.</p></article>
+        </div>
+        <div class="split" style="margin-top:18px">
+          <div class="chart-card reveal">
+            <h3>Composición de la muestra</h3>
+            <div class="chart-wrap"><canvas id="datasetChart"></canvas></div>
+          </div>
+          <div class="chart-card reveal">
+            <h3>Señales con mayor aporte</h3>
+            <div class="chart-wrap"><canvas id="featuresChart"></canvas></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="evolucion">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="kicker">Evolución del producto</p>
+            <h2>De prototipo inteligente a plataforma de prevención de fraude para entidades financieras.</h2>
           </div>
         </div>
         <div class="conclusions">
-          <article class="conclusion reveal"><strong>01</strong><p>La Red Neuronal fue el mejor modelo técnico y de negocio.</p></article>
-          <article class="conclusion reveal"><strong>02</strong><p>Detectó más del 83% de los fraudes evaluados.</p></article>
-          <article class="conclusion reveal"><strong>03</strong><p>No presentó señales de overfitting en la evaluación.</p></article>
-          <article class="conclusion reveal"><strong>04</strong><p>Los balances de cuenta fueron los factores más importantes.</p></article>
-          <article class="conclusion reveal"><strong>05</strong><p>Detectar un fraude pesa más que evitar una falsa alarma.</p></article>
+          <article class="conclusion reveal"><strong>01</strong><p>Conectar el motor a flujos transaccionales en tiempo real.</p></article>
+          <article class="conclusion reveal"><strong>02</strong><p>Crear paneles de riesgo para equipos antifraude y operaciones.</p></article>
+          <article class="conclusion reveal"><strong>03</strong><p>Registrar decisiones para auditoría, mejora continua y trazabilidad.</p></article>
+          <article class="conclusion reveal"><strong>04</strong><p>Integrar alertas y acciones automáticas según nivel de riesgo.</p></article>
+          <article class="conclusion reveal"><strong>05</strong><p>Escalar el asistente IA como centro de consulta para analistas.</p></article>
         </div>
       </div>
     </section>
@@ -881,19 +933,19 @@
       <div class="shell">
         <div class="chat-grid">
           <div class="reveal">
-            <p class="kicker">Pregúntale al Proyecto</p>
-            <h2>Una capa conversacional lista para FastAPI en Render.</h2>
+            <p class="kicker">Asistente de Inteligencia Artificial</p>
+            <h2>Un centro de consultas para explicar riesgo, resultados e impacto financiero.</h2>
             <p class="section-copy">
-              Un asistente para explicar resultados, justificar decisiones del modelo y responder preguntas
-              durante la presentación del proyecto.
+              Diseñado para responder preguntas de negocio sobre la solución, sus resultados y su posible evolución
+              hacia una plataforma real para entidades financieras.
             </p>
           </div>
           <div class="chat-panel reveal">
-            <h3>Pregúntale al Proyecto</h3>
+            <h3>Centro de Consultas IA</h3>
             <form class="chat-box" id="chatForm">
-              <textarea id="question" placeholder="¿Por qué ganó la Red Neuronal?"></textarea>
+              <textarea id="question" placeholder="¿Qué impacto tendría en una entidad financiera?"></textarea>
               <button class="button primary" type="submit" id="chatButton">Enviar pregunta</button>
-              <div class="chat-response" id="chatResponse">La respuesta del asistente aparecerá aquí.</div>
+              <div class="chat-response" id="chatResponse">Prueba con: ¿Cómo detecta fraude el sistema? ¿Por qué se eligió esta solución? ¿Cómo podría escalarse a producción?</div>
             </form>
           </div>
         </div>
@@ -902,7 +954,7 @@
   </main>
 
   <footer class="footer">
-    <div class="shell">Credit Card Fraud Detection · Proyecto universitario de Inteligencia Artificial</div>
+    <div class="shell">Fraud Intelligence Platform · Solución IA para prevención de fraude financiero</div>
   </footer>
 
   <script>
@@ -937,17 +989,37 @@
     });
 
     new Chart(document.getElementById("metricsChart"), {
+      type: "doughnut",
+      data: {
+        labels: ["Fraudes detectados", "Fraudes que pasaron"],
+        datasets: [{
+          data: [4569, 925],
+          backgroundColor: ["rgba(52, 211, 153, 0.88)", "rgba(251, 113, 133, 0.86)"],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: "68%",
+        plugins: {
+          legend: { position: "bottom", labels: { usePointStyle: true, padding: 18 } }
+        }
+      }
+    });
+
+    new Chart(document.getElementById("comparisonChart"), {
       type: "bar",
       data: {
-        labels: ["Recall", "Precision", "F1", "Accuracy"],
+        labels: ["Reglas lineales", "Árboles", "Boosting", "Motor inteligente"],
         datasets: [{
-          label: "Red Neuronal",
-          data: [83.16, 16.76, 27.9, 28.35],
+          label: "Fraudes identificados (%)",
+          data: [48.43, 28.8, 39.5, 83.16],
           backgroundColor: [
-            "rgba(52, 211, 153, 0.86)",
-            "rgba(251, 191, 36, 0.86)",
-            "rgba(168, 85, 247, 0.86)",
-            "rgba(34, 211, 238, 0.86)"
+            "rgba(148, 163, 184, 0.7)",
+            "rgba(34, 211, 238, 0.68)",
+            "rgba(168, 85, 247, 0.72)",
+            "rgba(52, 211, 153, 0.88)"
           ],
           borderRadius: 8
         }]
@@ -956,58 +1028,16 @@
         responsive: true,
         maintainAspectRatio: false,
         scales: {
-          y: { beginAtZero: true, max: 100, ticks: { callback: value => value + "%" } },
-          x: { grid: { display: false } }
-        },
-        plugins: { legend: { display: false } }
-      }
-    });
-
-    new Chart(document.getElementById("comparisonChart"), {
-      type: "bar",
-      data: {
-        labels: ["Logistic Regression", "Random Forest", "XGBoost", "Red Neuronal"],
-        datasets: [
-          {
-            label: "Recall (%)",
-            data: [48.43, 28.8, 39.5, 83.16],
-            backgroundColor: "rgba(52, 211, 153, 0.82)",
-            borderRadius: 8,
-            yAxisID: "y"
-          },
-          {
-            label: "Business Score",
-            data: [-12167.8, -18252.9, -14973.1, -1190.75],
-            type: "line",
-            borderColor: "rgba(251, 191, 36, 0.95)",
-            backgroundColor: "rgba(251, 191, 36, 0.14)",
-            pointBackgroundColor: "rgba(251, 191, 36, 1)",
-            pointRadius: 5,
-            tension: 0.34,
-            yAxisID: "y1"
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: "index", intersect: false },
-        scales: {
           y: {
             beginAtZero: true,
             max: 100,
             ticks: { callback: value => value + "%" },
-            title: { display: true, text: "Recall" }
-          },
-          y1: {
-            position: "right",
-            grid: { drawOnChartArea: false },
-            title: { display: true, text: "Business Score" }
+            title: { display: true, text: "Fraudes identificados" }
           },
           x: { grid: { display: false } }
         },
         plugins: {
-          legend: { position: "bottom", labels: { usePointStyle: true, padding: 18 } }
+          legend: { display: false }
         }
       }
     });
@@ -1017,8 +1047,8 @@
       data: {
         labels: ["oldbalanceDest", "newbalanceOrig", "oldbalanceOrg", "newbalanceDest", "amount"],
         datasets: [{
-          label: "Importancia relativa",
-          data: [100, 88, 77, 69, 54],
+          label: "Aporte al motor de riesgo",
+          data: [16.37, 16.18, 16.16, 15.54, 15.44],
           backgroundColor: "rgba(139, 92, 246, 0.84)",
           borderRadius: 8
         }]
@@ -1028,7 +1058,7 @@
         responsive: true,
         maintainAspectRatio: false,
         scales: {
-          x: { beginAtZero: true, max: 100 },
+          x: { beginAtZero: true, max: 18, ticks: { callback: value => value + "%" } },
           y: { grid: { display: false } }
         },
         plugins: { legend: { display: false } }
