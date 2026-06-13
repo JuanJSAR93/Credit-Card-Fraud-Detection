@@ -684,7 +684,7 @@
         <a href="#pipeline">Pipeline</a>
         <a href="#modelos">Modelos</a>
         <a href="#negocio">Negocio</a>
-        <a href="#chat">Chat IA</a>
+        <a href="#chat">Pregúntale al Proyecto</a>
       </div>
     </div>
   </nav>
@@ -701,7 +701,7 @@
           </p>
           <div class="hero-actions">
             <a class="button primary" href="#modelos">Ver modelo ganador</a>
-            <a class="button" href="#chat">Probar Chat IA</a>
+            <a class="button" href="#chat">Pregúntale al Proyecto</a>
           </div>
         </div>
 
@@ -808,6 +808,10 @@
             </div>
           </article>
         </div>
+        <div class="chart-card reveal" style="margin-top:18px">
+          <h3>Recall y Business Score por modelo</h3>
+          <div class="chart-wrap"><canvas id="comparisonChart"></canvas></div>
+        </div>
       </div>
     </section>
 
@@ -877,7 +881,7 @@
       <div class="shell">
         <div class="chat-grid">
           <div class="reveal">
-            <p class="kicker">Chat IA</p>
+            <p class="kicker">Pregúntale al Proyecto</p>
             <h2>Una capa conversacional lista para FastAPI en Render.</h2>
             <p class="section-copy">
               Un asistente para explicar resultados, justificar decisiones del modelo y responder preguntas
@@ -885,7 +889,7 @@
             </p>
           </div>
           <div class="chat-panel reveal">
-            <h3>Pregunta sobre el proyecto</h3>
+            <h3>Pregúntale al Proyecto</h3>
             <form class="chat-box" id="chatForm">
               <textarea id="question" placeholder="¿Por qué ganó la Red Neuronal?"></textarea>
               <button class="button primary" type="submit" id="chatButton">Enviar pregunta</button>
@@ -903,7 +907,7 @@
 
   <script>
     // Cambia esta constante por la URL pública de tu backend FastAPI en Render.
-    const BACKEND_URL = "https://tu-backend-en-render.onrender.com";
+    const API_URL = "https://tu-backend-en-render.onrender.com";
 
     const chartText = "#cbd5e1";
     const chartGrid = "rgba(255, 255, 255, 0.08)";
@@ -956,6 +960,55 @@
           x: { grid: { display: false } }
         },
         plugins: { legend: { display: false } }
+      }
+    });
+
+    new Chart(document.getElementById("comparisonChart"), {
+      type: "bar",
+      data: {
+        labels: ["Logistic Regression", "Random Forest", "XGBoost", "Red Neuronal"],
+        datasets: [
+          {
+            label: "Recall (%)",
+            data: [48.43, 28.8, 39.5, 83.16],
+            backgroundColor: "rgba(52, 211, 153, 0.82)",
+            borderRadius: 8,
+            yAxisID: "y"
+          },
+          {
+            label: "Business Score",
+            data: [-12167.8, -18252.9, -14973.1, -1190.75],
+            type: "line",
+            borderColor: "rgba(251, 191, 36, 0.95)",
+            backgroundColor: "rgba(251, 191, 36, 0.14)",
+            pointBackgroundColor: "rgba(251, 191, 36, 1)",
+            pointRadius: 5,
+            tension: 0.34,
+            yAxisID: "y1"
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: "index", intersect: false },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100,
+            ticks: { callback: value => value + "%" },
+            title: { display: true, text: "Recall" }
+          },
+          y1: {
+            position: "right",
+            grid: { drawOnChartArea: false },
+            title: { display: true, text: "Business Score" }
+          },
+          x: { grid: { display: false } }
+        },
+        plugins: {
+          legend: { position: "bottom", labels: { usePointStyle: true, padding: 18 } }
+        }
       }
     });
 
@@ -1072,7 +1125,7 @@
       responseBox.textContent = "Conectando con el backend...";
 
       try {
-        const response = await fetch(`${BACKEND_URL}/chat`, {
+        const response = await fetch(`${API_URL}/chat`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ question })
@@ -1085,7 +1138,7 @@
         const data = await response.json();
         responseBox.textContent = data.answer || "El backend respondió sin el campo answer.";
       } catch (error) {
-        responseBox.textContent = "No se pudo conectar con el backend. Revisa BACKEND_URL, CORS y que Render esté activo.";
+        responseBox.textContent = "No se pudo conectar con el backend. Revisa API_URL, CORS y que Render esté activo.";
       } finally {
         button.disabled = false;
         button.textContent = "Enviar pregunta";
