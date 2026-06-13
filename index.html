@@ -319,7 +319,6 @@
     }
 
     h2 {
-      max-width: 760px;
       margin: 0;
       font-size: clamp(2rem, 4vw, 3.7rem);
       line-height: 1.03;
@@ -327,10 +326,25 @@
     }
 
     .section-copy {
-      max-width: 620px;
       margin: 14px 0 0;
       color: var(--muted-2);
       line-height: 1.7;
+    }
+
+    .section-head > div {
+      width: 100%;
+    }
+
+    .hero h2 {
+      max-width: 780px;
+    }
+
+    section:not(.hero) h2 {
+      max-width: 1100px;
+    }
+
+    section:not(.hero) .section-copy {
+      max-width: 900px;
     }
 
     .stats-grid {
@@ -533,18 +547,18 @@
       line-height: 1.55;
     }
 
-    .tech-grid {
+    .implementation-flow {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 12px;
       margin-top: 28px;
     }
 
-    .tech-pill {
+    .flow-node, .benefit-card {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 72px;
+      min-height: 112px;
       padding: 18px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: var(--radius);
@@ -552,6 +566,48 @@
       background: rgba(255, 255, 255, 0.055);
       font-weight: 750;
       text-align: center;
+    }
+
+    .flow-node strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 1.02rem;
+    }
+
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .decision-card {
+      min-height: 136px;
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .decision-card strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--text);
+      font-size: 1.25rem;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .benefit-card {
+      min-height: 104px;
+      justify-content: flex-start;
+      color: var(--text);
     }
 
     .chat-grid {
@@ -650,7 +706,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .flow-grid, .conclusions, .tech-grid {
+      .flow-grid, .conclusions, .implementation-flow, .benefits-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
@@ -677,7 +733,7 @@
         width: 100%;
       }
 
-      .stats-grid, .flow-grid, .business-grid, .conclusions, .tech-grid {
+      .stats-grid, .flow-grid, .business-grid, .conclusions, .implementation-flow, .decision-grid, .benefits-grid {
         grid-template-columns: 1fr;
       }
 
@@ -701,10 +757,11 @@
         <span>Fraud Intelligence</span>
       </a>
       <div class="nav-links" aria-label="Navegación principal">
-        <a href="#problema">Problema</a>
+        <a href="#desafio">Desafío</a>
         <a href="#solucion">Solución</a>
         <a href="#resultados">Resultados</a>
-        <a href="#impacto">Impacto</a>
+        <a href="#funciona">Por qué funciona</a>
+        <a href="#implementacion">Implementación</a>
         <a href="#chat">Asistente IA</a>
       </div>
     </div>
@@ -715,10 +772,9 @@
       <div class="shell hero-grid">
         <div class="reveal">
           <p class="eyebrow"><span class="pulse"></span> Plataforma fintech de prevención de fraude</p>
-          <h1>Protegiendo millones de transacciones con <span class="gradient-text">Inteligencia Artificial</span></h1>
+          <h2>Protegiendo millones de transacciones con <span class="gradient-text">Inteligencia Artificial</span></h2>
           <p class="hero-copy">
-            Nuestra solución logró detectar más de 4.500 transacciones fraudulentas y detener aproximadamente
-            5 fraudes por cada uno que logró pasar desapercibido.
+            Una solución fintech diseñada para reducir exposición financiera, acelerar decisiones de riesgo y fortalecer la confianza operativa.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="#resultados">Ver resultados</a>
@@ -740,24 +796,24 @@
                 <div class="risk-score">Activo</div>
               </div>
               <div>
-                <div class="risk-label">Fraude identificado</div>
-                <div class="risk-score">83%</div>
+                <div class="risk-label">Evaluación</div>
+                <div class="risk-score">IA</div>
               </div>
             </div>
-            <div class="signal-row"><span>Patrones de saldo</span><strong>Alta señal</strong></div>
+            <div class="signal-row"><span>Transacciones protegidas</span><strong>Activo</strong></div>
             <div class="bar"><span style="width:91%"></span></div>
-            <div class="signal-row"><span>Riesgo transaccional</span><strong>Monitoreado</strong></div>
+            <div class="signal-row"><span>Riesgo financiero</span><strong>Monitoreado</strong></div>
             <div class="bar"><span style="width:74%"></span></div>
           </div>
         </div>
       </div>
     </header>
 
-    <section id="problema">
+    <section id="desafio">
       <div class="shell">
         <div class="section-head reveal">
           <div>
-            <p class="kicker">El problema</p>
+            <p class="kicker">El desafío</p>
             <h2>El fraude financiero escala más rápido que los equipos humanos pueden revisarlo.</h2>
             <p class="section-copy">
               Bancos, billeteras digitales y entidades financieras procesan millones de operaciones. En ese volumen,
@@ -777,29 +833,22 @@
 
     <section id="solucion">
       <div class="shell">
-        <div class="models-grid">
-          <div class="reveal">
+        <div class="section-head reveal">
+          <div>
             <p class="kicker">La solución</p>
-            <h2>Un motor inteligente que prioriza detener fraude antes de que se convierta en pérdida.</h2>
+            <h2>Un motor de detección basado en IA para convertir señales dispersas en decisiones de riesgo.</h2>
             <p class="section-copy">
-              La solución analiza señales transaccionales y cambios de balance para identificar operaciones de alto riesgo.
-              La arquitectura final fue optimizada para maximizar la detección de fraude y reducir el riesgo financiero.
+              Construimos una capa inteligente que analiza patrones transaccionales, compara múltiples enfoques predictivos
+              y selecciona una arquitectura optimizada para operar como soporte de decisión antifraude.
             </p>
           </div>
-          <article class="card winner reveal">
-            <span class="winner-badge">Motor Inteligente de Detección</span>
-            <h3>La Solución Seleccionada</h3>
-            <p>
-              El sistema elegido utiliza una red neuronal como núcleo de decisión, apoyada por comparaciones con
-              modelos de machine learning para validar su desempeño frente al objetivo de negocio.
-            </p>
-            <div class="metric-list">
-              <div class="metric"><span>Fraudes identificados</span><strong>83.16%</strong></div>
-              <div class="metric"><span>Fraudes detenidos</span><strong>4.569</strong></div>
-              <div class="metric"><span>Fraudes que pasaron</span><strong>925</strong></div>
-              <div class="metric"><span>Relación aproximada</span><strong>5 a 1</strong></div>
-            </div>
-          </article>
+        </div>
+        <div class="flow-grid">
+          <article class="step reveal"><div class="step-number">1</div><h3>Motor IA</h3><p>Evalúa transacciones y asigna señales de riesgo según comportamiento financiero.</p></article>
+          <article class="step reveal"><div class="step-number">2</div><h3>Patrones</h3><p>Analiza montos, tipo de operación y variaciones de saldo antes y después del movimiento.</p></article>
+          <article class="step reveal"><div class="step-number">3</div><h3>Comparación</h3><p>Contrasta distintos enfoques predictivos para encontrar el más útil para el negocio.</p></article>
+          <article class="step reveal"><div class="step-number">4</div><h3>Optimización</h3><p>Prioriza decisiones que reduzcan exposición financiera y aceleren respuesta operativa.</p></article>
+          <article class="step reveal"><div class="step-number">5</div><h3>Producto</h3><p>Se integra con APIs, paneles y alertas dentro de una operación antifraude.</p></article>
         </div>
       </div>
     </section>
@@ -816,9 +865,10 @@
             </p>
           </div>
         </div>
-        <div class="business-grid">
+        <div class="stats-grid">
           <article class="stat reveal"><p class="stat-value">4.569</p><p class="stat-label">Fraudes detectados por el sistema.</p></article>
           <article class="stat reveal"><p class="stat-value">925</p><p class="stat-label">Fraudes que lograron pasar.</p></article>
+          <article class="stat reveal"><p class="stat-value">83%</p><p class="stat-label">Tasa de detección alcanzada.</p></article>
           <article class="stat reveal"><p class="stat-value">5:1</p><p class="stat-label">Fraudes detectados por cada fraude no detectado.</p></article>
         </div>
         <div class="split" style="margin-top:18px">
@@ -834,97 +884,71 @@
       </div>
     </section>
 
-    <section id="impacto">
+    <section id="funciona">
       <div class="shell">
         <div class="section-head reveal">
           <div>
-            <p class="kicker">Impacto para el negocio</p>
-            <h2>Menos fraude aprobado significa menor exposición económica y mayor confianza operativa.</h2>
+            <p class="kicker">¿Por qué funciona?</p>
+            <h2>La IA aprende señales de comportamiento que suelen pasar desapercibidas en una revisión manual.</h2>
             <p class="section-copy">
-              El objetivo del sistema es minimizar pérdidas económicas priorizando la detección de fraude.
-              En este escenario, dejar pasar un fraude es mucho más costoso que investigar una operación sospechosa.
+              Las variables de mayor aporte se concentraron en patrones de saldo: cambios entre balances de origen y destino,
+              combinados con el monto y el tipo de transacción. Esta lectura puede complementarse con SHAP para explicar
+              decisiones individuales de riesgo.
             </p>
           </div>
         </div>
-        <div class="business-grid">
-          <article class="stat reveal"><p class="stat-value">83%</p><p class="stat-label">De detección de fraude.</p></article>
-          <article class="stat reveal"><p class="stat-value">4.569</p><p class="stat-label">Fraudes identificados.</p></article>
-          <article class="stat reveal"><p class="stat-value">925</p><p class="stat-label">Fraudes que lograron pasar.</p></article>
-        </div>
-        <div class="formula reveal">Prioridad de negocio: detectar fraude temprano para reducir pérdidas financieras.</div>
-      </div>
-    </section>
-
-    <section id="tecnologia">
-      <div class="shell">
-        <div class="section-head reveal">
-          <div>
-            <p class="kicker">Tecnología utilizada</p>
-            <h2>Una base técnica moderna, diseñada para evolucionar hacia un producto real.</h2>
-            <p class="section-copy">
-              La tecnología funciona como soporte del producto: modelos predictivos, APIs y despliegue web para convertir
-              la detección de fraude en una experiencia consultable y escalable.
-            </p>
-          </div>
-        </div>
-        <div class="tech-grid">
-          <div class="tech-pill reveal">Machine Learning</div>
-          <div class="tech-pill reveal">Deep Learning</div>
-          <div class="tech-pill reveal">XGBoost</div>
-          <div class="tech-pill reveal">Random Forest</div>
-          <div class="tech-pill reveal">Redes Neuronales</div>
-          <div class="tech-pill reveal">FastAPI</div>
-          <div class="tech-pill reveal">Groq</div>
-          <div class="tech-pill reveal">GitHub Pages + Render</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="dataset">
-      <div class="shell">
-        <div class="section-head reveal">
-          <div>
-            <p class="kicker">Base de análisis</p>
-            <h2>La solución fue probada sobre una muestra diseñada para acelerar experimentación y comparación.</h2>
-            <p class="section-copy">
-              El universo original contiene 21.000.000 transacciones. Para validar la solución se trabajó con
-              164.820 transacciones, manteniendo señales suficientes para comparar enfoques de detección.
-            </p>
-          </div>
-        </div>
-        <div class="stats-grid">
-          <article class="stat reveal"><p class="stat-value">21M</p><p class="stat-label">Transacciones en la base original.</p></article>
-          <article class="stat reveal"><p class="stat-value">164.820</p><p class="stat-label">Transacciones en la muestra de trabajo.</p></article>
-          <article class="stat reveal"><p class="stat-value">27.470</p><p class="stat-label">Operaciones fraudulentas presentes en la muestra.</p></article>
-          <article class="stat reveal"><p class="stat-value">7</p><p class="stat-label">Señales transaccionales utilizadas.</p></article>
-        </div>
-        <div class="split" style="margin-top:18px">
+        <div class="split">
           <div class="chart-card reveal">
-            <h3>Composición de la muestra</h3>
-            <div class="chart-wrap"><canvas id="datasetChart"></canvas></div>
-          </div>
-          <div class="chart-card reveal">
-            <h3>Señales con mayor aporte</h3>
+            <h3>Variables con mayor aporte</h3>
             <div class="chart-wrap"><canvas id="featuresChart"></canvas></div>
           </div>
+          <div class="card reveal">
+            <h3>Acerca del Proyecto</h3>
+            <p>
+              Base original: 21 millones de transacciones. Muestra utilizada: 164.820 transacciones.
+              Fraudes analizados: 27.470. La muestra permitió acelerar experimentación sin perder señales clave del problema.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="evolucion">
+    <section id="implementacion">
       <div class="shell">
         <div class="section-head reveal">
           <div>
-            <p class="kicker">Evolución del producto</p>
-            <h2>De prototipo inteligente a plataforma de prevención de fraude para entidades financieras.</h2>
+            <p class="kicker">Implementación Empresarial</p>
+            <h2>¿Cómo funcionaría esta solución dentro de una entidad financiera?</h2>
+            <p class="section-copy">
+              La solución encaja como una capa de decisión entre el flujo transaccional y los equipos operativos:
+              evalúa riesgo, automatiza aprobaciones seguras y prioriza los casos que requieren revisión antifraude.
+            </p>
           </div>
         </div>
-        <div class="conclusions">
-          <article class="conclusion reveal"><strong>01</strong><p>Conectar el motor a flujos transaccionales en tiempo real.</p></article>
-          <article class="conclusion reveal"><strong>02</strong><p>Crear paneles de riesgo para equipos antifraude y operaciones.</p></article>
-          <article class="conclusion reveal"><strong>03</strong><p>Registrar decisiones para auditoría, mejora continua y trazabilidad.</p></article>
-          <article class="conclusion reveal"><strong>04</strong><p>Integrar alertas y acciones automáticas según nivel de riesgo.</p></article>
-          <article class="conclusion reveal"><strong>05</strong><p>Escalar el asistente IA como centro de consulta para analistas.</p></article>
+        <div class="implementation-flow">
+          <div class="flow-node reveal"><span><strong>Transacción</strong>La operación entra al sistema.</span></div>
+          <div class="flow-node reveal"><span><strong>Motor IA</strong>Se analizan señales transaccionales.</span></div>
+          <div class="flow-node reveal"><span><strong>Riesgo</strong>Se calcula una prioridad operativa.</span></div>
+          <div class="flow-node reveal"><span><strong>Decisión</strong>Se define acción automática o revisión.</span></div>
+          <div class="flow-node reveal"><span><strong>Aprendizaje</strong>La retroalimentación mejora el criterio.</span></div>
+        </div>
+        <div class="decision-grid">
+          <article class="decision-card reveal">
+            <strong>Riesgo Bajo</strong>
+            <p class="stat-label">Aprobación automática para mantener velocidad operativa y reducir fricción.</p>
+          </article>
+          <article class="decision-card reveal">
+            <strong>Riesgo Alto</strong>
+            <p class="stat-label">Revisión antifraude priorizada para que el equipo actúe sobre los casos críticos.</p>
+          </article>
+        </div>
+        <div class="benefits-grid">
+          <div class="benefit-card reveal">Mayor detección de fraude</div>
+          <div class="benefit-card reveal">Reducción de pérdidas económicas</div>
+          <div class="benefit-card reveal">Escalable a millones de transacciones</div>
+          <div class="benefit-card reveal">Priorización automática de casos</div>
+          <div class="benefit-card reveal">Apoyo a equipos antifraude</div>
+          <div class="benefit-card reveal">Base para monitoreo en tiempo real</div>
         </div>
       </div>
     </section>
@@ -959,7 +983,7 @@
 
   <script>
     // Cambia esta constante por la URL pública de tu backend FastAPI en Render.
-    const API_URL = "https://tu-backend-en-render.onrender.com";
+    const API_URL = "https://api-credit-card-fraud-detection.onrender.com";
 
     const chartText = "#cbd5e1";
     const chartGrid = "rgba(255, 255, 255, 0.08)";
@@ -967,26 +991,6 @@
     Chart.defaults.color = chartText;
     Chart.defaults.borderColor = chartGrid;
     Chart.defaults.font.family = "Inter, system-ui, sans-serif";
-
-    new Chart(document.getElementById("datasetChart"), {
-      type: "doughnut",
-      data: {
-        labels: ["No fraude", "Fraude"],
-        datasets: [{
-          data: [137350, 27470],
-          backgroundColor: ["rgba(34, 211, 238, 0.82)", "rgba(139, 92, 246, 0.92)"],
-          borderWidth: 0
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        cutout: "68%",
-        plugins: {
-          legend: { position: "bottom", labels: { usePointStyle: true, padding: 18 } }
-        }
-      }
-    });
 
     new Chart(document.getElementById("metricsChart"), {
       type: "doughnut",
@@ -1154,19 +1158,26 @@
       button.textContent = "Consultando...";
       responseBox.textContent = "Conectando con el backend...";
 
-      try {
-        const response = await fetch(`${API_URL}/chat`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ question })
-        });
+      try 
+      {
+        let sessionId = localStorage.getItem("fraud_session_id");
 
-        if (!response.ok) {
-          throw new Error(`Error ${response.status}`);
-        }
+        const response = await fetch(`${API_URL}/consultar`,  
+          {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({session_id: sessionId, mensaje: question})
+          }
+        );
 
         const data = await response.json();
-        responseBox.textContent = data.answer || "El backend respondió sin el campo answer.";
+
+        if (data.session_id) {
+          sessionId = data.session_id;
+          localStorage.setItem("fraud_session_id", data.session_id);
+        }
+
+        responseBox.textContent = data.respuesta || "No se recibió respuesta.";
       } catch (error) {
         responseBox.textContent = "No se pudo conectar con el backend. Revisa API_URL, CORS y que Render esté activo.";
       } finally {
